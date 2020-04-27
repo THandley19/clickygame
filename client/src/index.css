@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.clickItem {
+  background-color: grey;
+  height: 300px;
+  width: 300px;
+}

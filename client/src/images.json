@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Colts",
+    "img": "https://static.www.nfl.com/image/private/t_q-best/league/ketwqeuschqzjsllbid5",
+    "clicked": "false"
+  },
+  {
+    "id": 2,
+    "name": "Jags",
+    "img": "https://cdn.shopify.com/s/files/1/0232/4875/products/e9515e637b4295bbeeb02a5543caff139d803e3d_900x900.jpg?v=1532990956",
+    "clicked": "false"
+  },
+  {
+    "id": 3,
+    "name": "Titans",
+    "img": "data:image/png;base64,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",
+    "clicked": "false"
+  },
+  {
+    "id": 4,
+    "name": "Texans",
+    "img": "https://rfathead-res.cloudinary.com/image/upload/q_auto,f_auto/c_pad,h_900/g_north,c_crop,h_900,w_900/c_pad,h_900,w_900/roomplus/14-14377_nfl_premask_Houston_Texans_Stacked_Logotype_2015_logo_6628.jpg",
+    "clicked": "false"
+  },
+  {
+    "id": 5,
+    "name": "Dolphins",
+    "img": "https://images-na.ssl-images-amazon.com/images/I/61xXnc6hhNL._SY355_.jpg",
+    "clicked": "false"
+  },
+  {
+    "id": 6,
+    "name": "Chiefs",
+    "img": "https://seeklogo.net/wp-content/uploads/2015/08/kansas-city-chiefs-logo-vector-download-400x400.jpg",
+    "clicked": "false"
+  },
+  {
+    "id": 7,
+    "name": "Rams",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRWLuY_TdG3-lHwabQbSM39E3__amsrXRzbLLwFwhVAy1MoV3CX&usqp=CAU",
+    "clicked": "false"
+  },
+  {
+    "id": 8,
+    "name": "Steelers",
+    "img": "https://www.logolynx.com/images/logolynx/2d/2d4483a72281ab8edc835fe92137c313.jpeg",
+    "clicked": "false"
+  },
+  {
+    "id": 9,
+    "name": "Giants",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSn_837v-NDQbJj9YnPvT41cpYFWqwlDGf2_R_C2B34kyuWY7jS&usqp=CAU",
+    "clicked": "false"
+  },
+  {
+    "id": 10,
+    "name": "Broncos",
+    "img": "https://i.pinimg.com/originals/dc/dc/59/dcdc59097611a86b8e78d691a48a6a2c.jpg",
+    "clicked": "false"
+  },
+  {
+    "id": 11,
+    "name": "Bears",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSbgGdVdKBVc9NusydX40aqriztdBGEKlPycMhentwMC8stf90B&usqp=CAU",
+    "clicked": "false"
+  },
+  {
+    "id": 12,
+    "name": "Bucs",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRwNgi7e4jF2PKcX6cne7PjxGlpYf_ATHmOQMvVB1zXe6IGeZ_C&usqp=CAU",
+    "clicked": "false"
+  }
+]

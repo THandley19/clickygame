@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import Images from "./components/images";
-
+import MainGame from "./components/Main";
 import "./App.css";
 
-class App extends Component {
-  render() {
-    return <Images />;
-  }
+function App() {
+  return (
+    <div>
+      <MainGame />
+    </div>
+  );
 }
 
 export default App;

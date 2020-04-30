@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import images from "../../images.json";
 import { Container, Row, Col } from "../Grid";
-import Jumbotron from "../Jumbotron";
 import Cards from "../Cards";
 import MessageDisplay from "../MessageDisplay";
 import Alert from "../Alert";
@@ -11,61 +10,41 @@ class MainGame extends Component {
   state = {
     userScore: 0,
     highScore: 0,
-    selectedImages: [],
     images,
     message: "",
   };
 
-  handleSelectedItem = (event) => {
-    console.log(event);
+  handleSelectedItem = (id, clicked) => {
+    const currentOrder = this.state.images;
 
-    const name = event;
-    this.guessCheck(name, this.updateHighScore);
-  };
+    if (!clicked) {
+      currentOrder.forEach((image, i) => {
+        if (id === image.id) {
+          currentOrder[i].clicked = true;
+        }
+      });
+      const userScore = this.state.userScore;
+      const highScore = this.state.highScore;
+      const newUserScore = userScore + 1;
+      const newHighScore = newUserScore > highScore ? newUserScore : highScore;
 
-  showShuffledImages() {
-    this.setState({
-      images: this.shuffleImages(images),
-    });
-  }
-
-  shuffleImages(images) {
-    images.sort(() => Math.random() - 0.5);
-  }
-
-  guessCheck(name) {
-    if (this.state.selectedImages.includes(name)) {
-      this.setState({
-        message: "You already selected that team!",
-        userScore: 0,
-        selectedImages: [],
+      return this.setState({
+        image: currentOrder.sort(() => Math.random() - 0.5),
+        message: "You Guessed Correctly!",
+        userScore: newUserScore,
+        highScore: newHighScore,
       });
     } else {
-      this.setState({
-        userScore: this.state.userScore + 1,
-        message: "You guessed that one correctly!",
+      currentOrder.forEach((image, i) => {
+        currentOrder[i].clicked = false;
       });
-      this.state.selectedImages.push(name);
-    }
-  }
-
-  updateHighScore() {
-    if (this.state.userScore > this.state.highScore) {
-      this.setState({
-        highScore: this.state.highScore + 1,
-      });
-    }
-  }
-
-  notifactionWinner() {
-    if (this.state.userScore === 12) {
-      this.setState({
-        message: "You Won! Good Job!",
+      return this.setState({
+        images: currentOrder.sort(() => Math.random() - 0.5),
+        message: "You Guessed Incorrectly!",
         userScore: 0,
-        selectedImages: [],
       });
     }
-  }
+  };
 
   render() {
     return (
@@ -92,9 +71,6 @@ class MainGame extends Component {
                 <Cards
                   key={images.id}
                   handleSelectedItem={this.handleSelectedItem}
-                  handleIncrement={this.handleIncrement}
-                  handleReset={this.handleReset}
-                  handleShuffle={this.handleShuffle}
                   id={images.id}
                   image={images.img}
                 ></Cards>

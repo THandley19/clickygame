@@ -9,7 +9,12 @@ const Cards = (props) => {
       onClick={() => props.handleSelectedItem(props.id, props.clicked)}
     >
       <div className="img-container">
-        <img id={props.name} alt={props.name} src={props.image} />
+        <img
+          id={props.name}
+          alt={props.name}
+          src={props.image}
+          clicked={props.clicked}
+        />
       </div>
     </div>
   );

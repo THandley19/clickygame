@@ -1,14 +1,15 @@
 import React from "react";
+import "../Jumbotron/style.css";
 
-function Jumbotron() {
+function Jumbotron(props) {
   return (
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <h1 class="display-4">NFL Clicky Game</h1>
-        <p class="lead">
-          Click on an image to earn points, but don't click on any image more
-          than once!
-        </p>
+        <h1 className="header-text">{props.title}</h1>
+
+        <h2>{props.message}</h2>
+        <h2>Current Score: {props.userScore}</h2>
+        <h2>Top Score: {props.highScore}</h2>
       </div>
     </div>
   );

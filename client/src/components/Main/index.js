@@ -4,7 +4,7 @@ import { Container, Row, Col } from "../Grid";
 import Cards from "../Cards";
 import MessageDisplay from "../MessageDisplay";
 import Alert from "../Alert";
-import Nav from "../Nav";
+import Jumbotron from "../Jumbotron";
 
 class MainGame extends Component {
   state = {
@@ -34,7 +34,7 @@ class MainGame extends Component {
         userScore: newUserScore,
         highScore: newHighScore,
       });
-    } else {
+    } else if (clicked) {
       currentOrder.forEach((image, i) => {
         currentOrder[i].clicked = false;
       });
@@ -44,26 +44,19 @@ class MainGame extends Component {
         userScore: 0,
       });
     }
+    {
+    }
   };
 
   render() {
     return (
       <Container>
-        <Nav
+        <Jumbotron
           title="NFL Clicky Game"
-          score={this.state.userScore}
+          userScore={this.state.userScore}
           message={this.state.message}
           highScore={this.state.highScore}
         />
-        <Row>
-          <MessageDisplay>
-            {this.state.message === "You guessed that one correctly!" ? (
-              <Alert message={this.state.message} />
-            ) : (
-              <Alert message={this.state.message} />
-            )}
-          </MessageDisplay>
-        </Row>
         <Row>
           {this.state.images.map((images) => {
             return (

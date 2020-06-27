@@ -1,5 +1,6 @@
 {
   "name": "mern",
+  "homepage": "https://protected-springs-66647.herokuapp.com/",
   "version": "1.0.0",
   "description": "Mern Demo",
   "main": "server.js",

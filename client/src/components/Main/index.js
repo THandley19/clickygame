@@ -9,42 +9,40 @@ import Jumbotron from "../Jumbotron";
 class MainGame extends Component {
   state = {
     userScore: 0,
-    highScore: 0,
     images,
+    clickImages: [],
     message: "",
   };
 
-  handleSelectedItem = (id, clicked) => {
-    const currentOrder = this.state.images;
-
-    if (!clicked) {
-      currentOrder.forEach((image, i) => {
-        if (id === image.id) {
-          currentOrder[i].clicked = true;
-        }
-      });
-      const userScore = this.state.userScore;
-      const highScore = this.state.highScore;
-      const newUserScore = userScore + 1;
-      const newHighScore = newUserScore > highScore ? newUserScore : highScore;
-
+  handleSelectedItem = (id) => {
+    const clickedImages = this.state.clickImages;
+    if (clickedImages.includes(id)) {
       return this.setState({
-        image: currentOrder.sort(() => Math.random() - 0.5),
-        message: "You Guessed Correctly!",
-        userScore: newUserScore,
-        highScore: newHighScore,
-      });
-    } else if (clicked) {
-      currentOrder.forEach((image, i) => {
-        currentOrder[i].clicked = false;
-      });
-      return this.setState({
-        images: currentOrder.sort(() => Math.random() - 0.5),
-        message: "You Guessed Incorrectly!",
+        clickImages: [],
         userScore: 0,
+        message: "Game Over! You lost. Click to play again!",
+      });
+    } else {
+      clickedImages.push(id);
+    }
+    if (clickedImages.length === 15) {
+      this.setState({
+        score: 15,
+        status: "You Won! Click to play again!",
+        clickImages: [],
       });
     }
-    {
+
+    this.setState({
+      images,
+      clickImages: this.state.clickImages,
+      userScore: this.state.clickImages.length,
+      message: "You guessed Correctly!",
+    });
+
+    for (let i = images.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [images[i], images[j]] = [images[j], images[i]];
     }
   };
 
@@ -55,7 +53,6 @@ class MainGame extends Component {
           title="NFL Clicky Game"
           userScore={this.state.userScore}
           message={this.state.message}
-          highScore={this.state.highScore}
         />
         <Row>
           {this.state.images.map((images) => {
@@ -66,6 +63,7 @@ class MainGame extends Component {
                   handleSelectedItem={this.handleSelectedItem}
                   id={images.id}
                   image={images.img}
+                  clicked={images.clicked}
                 ></Cards>
               </Col>
             );
